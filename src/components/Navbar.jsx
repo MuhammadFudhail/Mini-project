@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
-// import troli from '../assets/troli.png';
 import { ShoppingCart, ShoppingCartIcon } from 'lucide-react';
 
 

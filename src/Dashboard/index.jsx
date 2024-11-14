@@ -32,8 +32,12 @@ const Home = () => {
     navigasi("/tambah-produk");
   };
 
+  const handleClick = () => {
+    navigasi("/detail");
+  };
+
   return (
-    <div>
+    <div className='bg-slate-50'>
       <Navbar />
 
       <div className='mx-20 mt-10 '>
@@ -75,20 +79,21 @@ const Home = () => {
           <h1 className='text-4xl font-medium text-slate-800'>Jual Sampah, Selamatkan Bumi</h1>
           <p className='mt-3 text-slate-600'>Dengan menjual sampah daur ulang, Anda berkontribusi untuk lingkungan yang lebih bersih dan hijau.</p>
         </div>
-          <button onClick={handle} className="bg-green-700 flex items-center gap-2 rounded-lg p-4 text-white font-medium hover:bg-green-500">
+          <button onClick={handle} className="bg-green-700 flex items-center gap-2 rounded-lg p-4 text-white font-medium hover:bg-green-600">
           <Plus />Tambah Produk
         </button>
         </div>
-      <div className="mx-20 mt-10  grid grid-cols-3 gap-4">
+      <div className="mx-20 mt-10  grid grid-cols-3 gap-4 ">
         {products.map((product) => (
-          <div key={product.id} className="border border-gray-200 p-4 rounded-lg">
-            <img src={product.image} alt={product.name} className="w-full h-60 object-cover rounded-lg mb-4 transform hover:scale-105 hover:rotate transition-all" />
+          <div key={product.id} className="border border-gray-300 p-4 rounded-lg">
+            <img src={product.image} alt={product.name} className="w-full h-72 object-cover rounded-lg mb-4 transform hover:scale-105 hover:rotate transition-all" />
             <h2 className="font-normal text-xl bg-green-50 w-[190px] rounded-2xl border-zinc-50">{product.name}</h2>
-            <p className="text-gray-600">{product.type}</p>
-            <p className="text-gray-600">{product.weight} kg</p>
-            <p className="text-gray-600">Rp {product.price}</p>
-            <p className="text-gray-600 mt-2">{product.description}</p>
-            <p className="text-gray-600 mt-2">{product.address}</p>
+            <p className="text-gray-600 mb-1">{product.type}</p>
+            <p className="text-gray-600 mb-1">{product.weight} kg</p>
+            <p className="text-green-600 mb-1 font-bold">Rp. {product.price}</p>
+            <p className="text-gray-600 mb-1">{product.description}</p>
+            <p className="text-gray-600 mb-1">{product.address}</p>
+            <button onClick={handleClick} className='bg-green-700 w-full h-9 rounded-lg text-lg text-white font-medium hover:bg-green-600'>Lihat Detail</button>
           </div>
         ))}
       </div>
