@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "./Dashboard/Index"
+import Home from "./Dashboard/index"
 import AddItem from "./Dashboard/Add-item"
 import Detail from "./Dashboard/Detail-item"
 
