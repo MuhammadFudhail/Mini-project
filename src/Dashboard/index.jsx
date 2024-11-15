@@ -16,8 +16,8 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get('https://6718b4807fc4c5ff8f4aabe4.mockapi.io/products');
-      console.log(response.data);
       setProducts(response.data);  // Menyimpan data produk ke dalam state
+      console.log("home", response.data);
     } catch (error) {
       console.error('Gagal mengambil data produk:', error);
     }
@@ -32,9 +32,9 @@ const Home = () => {
     navigasi("/tambah-produk");
   };
 
-  const handleClick = () => {
-    navigasi("/detail");
-  };
+  // const handleClick = () => {
+  //   navigasi("/product");
+  // };
 
   return (
     <div className='bg-slate-50'>
@@ -93,7 +93,7 @@ const Home = () => {
             <p className="text-green-600 mb-1 font-bold">Rp. {product.price}</p>
             <p className="text-gray-600 mb-1">{product.description}</p>
             <p className="text-gray-600 mb-1">{product.address}</p>
-            <button onClick={handleClick} className='bg-green-700 w-full h-9 rounded-lg text-lg text-white font-medium hover:bg-green-600'>Lihat Detail</button>
+            <button onClick={() => navigasi(`/product/${product.id}`)} className='bg-green-700 w-full h-9 rounded-lg text-lg text-white font-medium hover:bg-green-600'>Lihat Detail</button>
           </div>
         ))}
       </div>
