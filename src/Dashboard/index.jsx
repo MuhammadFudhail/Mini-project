@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../Components/Navbar';
+import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import Latar from '../assets/Latar.jpeg';
 import { BatteryWarningIcon, LeafIcon, Milk, Plus, RecycleIcon } from 'lucide-react';
