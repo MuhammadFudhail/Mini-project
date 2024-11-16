@@ -4,18 +4,57 @@ import axios from 'axios';
 
 const Detail = () => {
   const [dataProduct, setDataProduct] = useState({});
+  const [isEditing, setEditing] = useState(false);
+  const [productName, setProductName] = useState('');
+  const [productType, setProductType] = useState('');
+  const [productWeight, setProductWeight] = useState('');
+  const [productPrice, setProductPrice] = useState('');
+  const [productAddress, setProductAddress] = useState('');
+  const [productDescription, setProductDescription] = useState('');
   const { id } = useParams();
 
   const endpoint = `https://6718b4807fc4c5ff8f4aabe4.mockapi.io/products/${id}`;
+
   const detailData = async () => {
     try {
       const response = await axios.get(`${endpoint}`);
       setDataProduct(response.data);
-      console.log('res detail', response.data);
+      setDataProduct(response.data);
+      setProductName(response.data.name);
+      setProductType(response.data.type);
+      setProductWeight(response.data.weight);
+      setProductPrice(response.data.price);
+      setProductAddress(response.data.address);
+      setProductDescription(response.data.description);
+    
     } catch (err) {
       console.log(err.message);
     }
   };
+
+  const updateDta = async () =>{
+    const updateDta = {
+      name: productName,
+      type: productType,
+      weight: productWeight,
+      price: productPrice,
+      address: productAddress,
+      description: productDescription
+    };
+
+    try{
+      const response = await axios.put(endpoint, updateDta);
+      setDataProduct(response.data);
+      setEditing(false);
+      alert('data berhasil diupdate');
+    }catch (err){
+      console.log(err.message)
+      alert('Terjadi kesalahan saat memperbarui data!');
+    }
+  };
+   const toggleEditMode = () => {
+    setEditing(!isEditing);
+   };
 
   const navigate = useNavigate()
 
@@ -44,14 +83,58 @@ const Detail = () => {
           </div>
 
           {/* Product Information */}
-          <div className="flex-1 flex flex-col gap-6 ">
-            <p className="text-3xl font-semibold text-gray-800">Nama Produk: {dataProduct.name}</p>
-            <p className="text-lg text-gray-600">Jenis Sampah: {dataProduct.type}</p>
-            <p className="text-lg text-gray-600">Berat: {dataProduct.weight} kg</p>
-            <p className="text-xl font-bold text-green-600">Rp. {dataProduct.price}</p>
-            
-            <p className="text-gray-600 italic">Alamat: {dataProduct.address}</p>
-          </div>
+          <div className='flex-1 flex flex-col gap-6'>
+  {isEditing ? (
+    <div>
+      <input
+        type="text"
+        value={productName}
+        onChange={(e) => setProductName(e.target.value)}
+        className='w-full p-3 border rounded-lg mb-4'
+      />
+      <input
+        type="text"
+        value={productType}
+        onChange={(e) => setProductType(e.target.value)}
+        className='w-full p-3 border rounded-lg mb-4'
+      />
+      <input
+        type="number"
+        value={productWeight}
+        onChange={(e) => setProductWeight(e.target.value)}
+        className='w-full p-3 border rounded-lg mb-4'
+      />
+      <input
+        type="number"
+        value={productPrice}
+        onChange={(e) => setProductPrice(e.target.value)}
+        className='w-full p-3 border rounded-lg mb-4'
+      />
+      <input
+        type="text"
+        value={productAddress}
+        onChange={(e) => setProductAddress(e.target.value)}
+        className='w-full p-3 border rounded-lg mb-4'
+      />
+      <textarea
+        value={productDescription}
+        onChange={(e) => setProductDescription(e.target.value)}
+        className="w-full p-3 border rounded-lg mb-4"
+      ></textarea>
+    </div>
+  ) : (
+    <div className="flex-1 flex flex-col gap-6">
+      <p className="text-3xl font-semibold text-gray-800">Nama Produk: {dataProduct.name}</p>
+      <p className="text-lg text-gray-600">Jenis Sampah: {dataProduct.type}</p>
+      <p className="text-lg text-gray-600">Berat: {dataProduct.weight} kg</p>
+      <p className="text-xl font-bold text-green-600">Rp. {dataProduct.price}</p>
+      <p className="text-gray-600 italic">Alamat: {dataProduct.address}</p>
+      {/* <p className="text-gray-600">{dataProduct.description}</p> */}
+    </div>
+  )}
+</div>
+
+
           
         </div>
         <div className='mt-10'>
@@ -59,11 +142,23 @@ const Detail = () => {
         <p className=" text-gray-700 text-base">{dataProduct.description}</p>
         </div>
 
+
+        {/* <button onClick={toggleEditMode} className="w-full h-16 px-6 py-2 bg-green-700 text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+          {isEditing ? 'Batal Edit' : 'Ubah Data'}
+        </button> */}
+
         {/* Action Buttons */}
-        <div className="flex gap-6 justify-between mt-10">
-          <button className=" w-full  h-16 px-6 py-2 bg-green-700 text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <div className="flex gap-6 justify-between mt-10"> 
+          {isEditing ? (
+            <button onClick={updateDta} className='w-full h-16 px-6 py-2 bg-green-700 text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500' >
+             Simpan Perubahan
+            </button>
+          ) : (
+         
+          <button onClick={toggleEditMode} className=" w-full  h-16 px-6 py-2 bg-green-700 text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500">
             Ubah Data
           </button>
+          )}
           <button className="w-full  h-16 px-6 py-2 bg-red-700 text-white text-xl rounded-lg shadow-md hover:bg-red-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-500">
             Hapus Data
           </button>
