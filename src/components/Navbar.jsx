@@ -11,10 +11,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className=''>
+    <div>
       {/* Navbar */}
       <nav className="bg-white shadow-md" >
-        <div className="flex justify-between items-center  py-4  mx-20">
+        <div className="flex justify-between items-center  py-1  mx-20">
           {/* Logo */}
           <div className="flex items-center">
             <img src={logo} alt="Eco Logo" className="w-[80px] h-[80px]" />
@@ -22,15 +22,14 @@ const Navbar = () => {
           </div>
 
           {/* Menu Items */}
-          <div className="flex items-center space-x-8 text-gray-700">
+          <div className="flex items-center gap-20 text-gray-700">
             <a href="#about" className="hover:text-green-500">Tentang Kami</a>
-            <a href="#services" className="hover:text-green-500">Layanan</a>
-            <a href="#solutions" className="hover:text-green-500">Solusi Kami</a>
-            <a href="#partners" className="hover:text-green-500">Mitra</a>
-            <a href="#blog" className="hover:text-green-500">Blog</a>
+            
+            <a href="#solutions" className="hover:text-green-500">Solusi AI</a>
+            
             <a href="#contact" className="hover:text-green-500">Kontak Kami</a>
             <a href="#language" className="hover:text-green-500 flex items-center">
-              <span className="material-icons">language</span> Indonesia
+           
             </a>
           </div>
 
