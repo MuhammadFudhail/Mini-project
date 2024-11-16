@@ -18,7 +18,7 @@ const Detail = () => {
   const endpoint = `https://6718b4807fc4c5ff8f4aabe4.mockapi.io/products/${id}`;
   const navigate = useNavigate();
 
-  const showAlert  = (title, text, icon) => {
+  const showAlert  = () => {
     Swal.fire({
       title: "Data berhasil ditambahkan",
       text: "You clicked the button!",
