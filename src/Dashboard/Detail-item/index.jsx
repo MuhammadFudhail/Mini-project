@@ -57,10 +57,10 @@ const Detail = () => {
       const response = await axios.put(endpoint, updatedData);
       setDataProduct(response.data);
       setEditing(false);
-      alert('Data berhasil diperbarui!');
+      showAlert('success', 'Data berhasil diperbarui!');
     } catch (err) {
       console.error(err.message);
-      alert('Terjadi kesalahan saat memperbarui data!');
+      showAlert('error', 'Terjadi kesalahan saat memperbarui data!');
     }
   };
 
