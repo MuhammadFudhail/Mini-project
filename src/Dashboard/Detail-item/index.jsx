@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Detail = () => {
   // State variables
@@ -16,6 +17,14 @@ const Detail = () => {
 
   const endpoint = `https://6718b4807fc4c5ff8f4aabe4.mockapi.io/products/${id}`;
   const navigate = useNavigate();
+
+  const showAlert  = (title, text, icon) => {
+    Swal.fire({
+      title: "Data berhasil ditambahkan",
+      text: "You clicked the button!",
+      icon: "success"
+    });
+  };
 
   // Fetch product details
   const detailData = async () => {
@@ -60,7 +69,33 @@ const Detail = () => {
     setEditing(!isEditing);
   };
 
-  // Use effect to fetch details on component mount
+  // Tambahkan fungsi deleteData
+const deleteData = async () => {
+  const confirmDelete = window.confirm(
+    'Apakah Anda yakin ingin menghapus data ini?'
+  );
+  if (confirmDelete) {
+    try {
+      await axios.delete(endpoint);
+      Swal.fire({
+        title: 'Data berhasil dihapus!',
+        text: 'Produk telah dihapus.',
+        icon: 'success',
+      });
+      navigate('/'); 
+    } catch (err) {
+      console.error(err.message);
+      Swal.fire({
+        title: 'Terjadi kesalahan!',
+        text: 'Gagal menghapus data.',
+        icon: 'error',
+      });
+    }
+  }
+};
+
+
+ 
   useEffect(() => {
     detailData();
   }, []);
@@ -172,6 +207,7 @@ const Detail = () => {
             </button>
           )}
           <button
+          onClick={deleteData}
             className="w-full h-16 px-6 py-2 bg-red-700 text-white text-xl rounded-lg shadow-md hover:bg-red-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-500"
           >
             Hapus Data
