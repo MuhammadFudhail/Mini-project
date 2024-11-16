@@ -11,14 +11,14 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className=''>
       {/* Navbar */}
-      <nav className="bg-white shadow-md">
-        <div className="flex justify-between items-center mx-11 py-4">
+      <nav className="bg-white shadow-md" >
+        <div className="flex justify-between items-center  py-4  mx-20">
           {/* Logo */}
           <div className="flex items-center">
             <img src={logo} alt="Eco Logo" className="w-[80px] h-[80px]" />
-            <span className="text-green-600 text-xl font-semibold ml-2">MallSampah</span>
+           
           </div>
 
           {/* Menu Items */}
