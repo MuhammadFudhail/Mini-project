@@ -162,20 +162,20 @@ const deleteData = async () => {
                 />
               </div>
             ) : (
-              <div>
-                <p className="text-3xl font-semibold text-gray-800">
+              <div className='gap-4'>
+                <p className="text-3xl font-semibold text-gray-800 mb-4">
                   Nama Produk: {dataProduct.name}
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-gray-600 mb-2">
                   Jenis Sampah: {dataProduct.type}
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-gray-600 mb-2">
                   Berat: {dataProduct.weight} kg
                 </p>
-                <p className="text-xl font-bold text-green-600">
+                <p className="text-xl font-bold text-green-600 mb-2">
                   Rp. {dataProduct.price}
                 </p>
-                <p className="text-gray-600 italic">
+                <p className="text-gray-600 italic mb-2">
                   Alamat: {dataProduct.address}
                 </p>
               </div>
@@ -185,7 +185,7 @@ const deleteData = async () => {
 
         {/* Product Description */}
         <div className="mt-10">
-          <p className="mb-2 text-2xl font-medium">Detail Produk:</p>
+          <p className="mb-2 text-2xl font-semibold">Detail Produk:</p>
           <p className="text-gray-700 text-base">{dataProduct.description}</p>
         </div>
 
