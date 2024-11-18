@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Simulasi proses login
-    if (email === "user@example.com" && password === "password") {
-      setIsLoggedIn(true);  // Mengubah status login
+    if (email.trim() === "muhamadfudhail21@gmail.com" && password === "123455") {
+      setIsLoggedIn(true); 
+      navigate("/"); 
     } else {
       alert("Invalid credentials");
     }
@@ -19,7 +22,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center text-gray-700">Login</h2>
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          <div className="space-y-4 bg-">
+          <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email Address
