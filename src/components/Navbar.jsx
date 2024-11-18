@@ -4,8 +4,8 @@ import logo from '../assets/logo.png';
 
 const Navbar = () => {
   return (
-    <div>
-      <nav className="bg-white shadow-md">
+    <div className=''>
+      <nav className="bg-white shadow-2xl">
         <div className="flex justify-between items-center py-1 mx-20">
           <div className="flex items-center">
             <img src={logo} alt="Eco Logo" className="w-[80px] h-[80px]" />
@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="/login" className="text-white bg-green-500 px-4 py-2 rounded-md hover:bg-green-700">Login</a>
+            <a href="/login" className="text-white bg-[#299e63] px-4 py-2 rounded-md hover:bg-green-700">Login</a>
           </div>
         </div>
       </nav>

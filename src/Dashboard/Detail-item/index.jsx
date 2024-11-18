@@ -172,7 +172,7 @@ const deleteData = async () => {
                 <p className="text-lg text-gray-600 mb-2">
                   Berat: {dataProduct.weight} kg
                 </p>
-                <p className="text-xl font-bold text-green-600 mb-2">
+                <p className="text-xl font-bold text-[#299e63] mb-2">
                   Rp. {dataProduct.price}
                 </p>
                 <p className="text-gray-600 italic mb-2">
@@ -194,14 +194,14 @@ const deleteData = async () => {
           {isEditing ? (
             <button
               onClick={updateData}
-              className="w-full h-16 px-6 py-2 bg-green-700 text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full h-16 px-6 py-2 bg-[#299e63] text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               Simpan Perubahan
             </button>
           ) : (
             <button
               onClick={toggleEditMode}
-              className="w-full h-16 px-6 py-2 bg-green-700 text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full h-16 px-6 py-2 bg-[#299e63] text-xl text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               Ubah Data
             </button>

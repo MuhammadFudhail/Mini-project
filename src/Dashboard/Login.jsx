@@ -7,7 +7,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Simulasi proses login
-    if (email === "user@example.com" && password === "password") {
+    if (email === "muhamadfudhail21@gmail.com" && password === "12345") {
       setIsLoggedIn(true);  // Mengubah status login
     } else {
       alert("Invalid credentials");
