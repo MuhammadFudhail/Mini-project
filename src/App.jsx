@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import Home from "./Dashboard/index";
+import Home from "./pages/index";
 import AddItem from "./Dashboard/Add-item";
 import Detail from "./Dashboard/Detail-item";
 import ChatAi from "./Dashboard/ChatAi";
@@ -19,6 +19,13 @@ function App() {
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
 
         {/* Proteksi halaman CRUD dan ChatAi */}
+      
+        
+        <Route 
+          path="/Chat" 
+          element={isLoggedIn ? <ChatAi /> : <Login setIsLoggedIn={setIsLoggedIn} />} 
+        />
+
         <Route 
           path="/tambah-produk" 
           element={isLoggedIn ? <AddItem /> : <Login setIsLoggedIn={setIsLoggedIn} />} 
@@ -27,10 +34,7 @@ function App() {
           path="/product/:id" 
           element={isLoggedIn ? <Detail /> : <Login setIsLoggedIn={setIsLoggedIn} />} 
         />
-        <Route 
-          path="/Chat" 
-          element={isLoggedIn ? <ChatAi /> : <Login setIsLoggedIn={setIsLoggedIn} />} 
-        />
+        
       </Routes>
     </>
   );
