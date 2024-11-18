@@ -26,7 +26,7 @@ const Detail = () => {
     });
   };
 
-  // Fetch product details
+ 
   const detailData = async () => {
     try {
       const response = await axios.get(endpoint);
@@ -42,7 +42,7 @@ const Detail = () => {
     }
   };
 
-  // Update product data
+ 
   const updateData = async () => {
     const updatedData = {
       name: productName,

@@ -2,12 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Home from "./pages/index";
 import AddItem from "./Dashboard/Add-item";
-import Detail from "./Dashboard/Detail-item";
-import ChatAi from "./Dashboard/ChatAi";
-import Login from "./Dashboard/Login";  // Komponen Login yang Anda buat sebelumnya
+import Detail from "./Dashboard/Feature";
+import ChatAi from "./components/ChatAi";
+import Login from "./components/Login";  
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Menyimpan status login
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   return (
     <>
