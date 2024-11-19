@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import Home from "./pages/index";
-import AddItem from "./Dashboard/Add-item";
-import Detail from "./Dashboard/Feature";
+import AddItem from "./Features/Dashboard/index";
+import Detail from "./Features/Dashboard/Handler";
 import ChatAi from "./components/ChatAi";
 import Login from "./components/Login";  
 
