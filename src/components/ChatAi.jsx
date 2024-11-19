@@ -59,12 +59,12 @@ const ChatAi = () => {
     };
 
     return (
-        <div className="mx-20">
+        <div className="mx-4 sm:mx-8 md:mx-20">
             <div className="relative w-full h-[729px] p-6 rounded-lg">
                 <h1 className="text-2xl font-bold text-gray-800 text-center mb-4">
                     TANYA <span className="text-green-500">AI</span> YUK!
                 </h1>
-                <div className="flex justify-between">
+                <div className="flex justify-between mb-4">
                     <button
                         onClick={() => navigate('/')}
                         className="h-10 px-4 py-2 font-semibold text-white bg-gray-700 rounded hover:bg-gray-600"
@@ -72,7 +72,7 @@ const ChatAi = () => {
                         Beranda
                     </button>
                 </div>
-        
+
                 <div className="mt-6 p-4 bg-gray-100 rounded h-[400px] overflow-y-auto">
                     <ul className="list-decimal pl-5 text-gray-700">
                         {response
@@ -85,9 +85,9 @@ const ChatAi = () => {
             </div>
 
             <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md p-4 border-t border-gray-300">
-                <div className="flex items-center w-[95%] mx-auto">
+                <div className="flex flex-col sm:flex-row items-center w-full mx-auto">
                     <input
-                        className="flex-grow p-2 text-gray-700 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="flex-grow p-2 text-gray-700 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500 mb-2 sm:mb-0 sm:w-3/4"
                         type="text"
                         value={inputUser}
                         onChange={handleChange}
@@ -95,7 +95,7 @@ const ChatAi = () => {
                     />
                     <button
                         onClick={handlePromptSubmit}
-                        className="h-12 ml-2 px-4 py-2 font-semibold text-white bg-green-700 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="h-12 px-4 py-2 font-semibold text-white bg-green-700 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 sm:ml-2"
                     >
                         Cari tahu yuk!
                     </button>

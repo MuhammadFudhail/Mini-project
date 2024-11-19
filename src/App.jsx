@@ -20,7 +20,6 @@ function App() {
 
         {/* Proteksi halaman CRUD dan ChatAi */}
       
-        
         <Route 
           path="/Chat" 
           element={isLoggedIn ? <ChatAi /> : <Login setIsLoggedIn={setIsLoggedIn} />} 
